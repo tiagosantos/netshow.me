@@ -1,24 +1,6 @@
-# README
+# NETSHOW.ME
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Teste para vaga de desenvolvedor Ruby on Rails
 
-Things you may want to cover:
+Você pode visualizar em https://test-netshowme.herokuapp.com/
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
