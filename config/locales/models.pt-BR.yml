@@ -1,0 +1,23 @@
+pt-BR:
+  activerecord:
+    attributes:
+      movie:
+        name: Nome
+        description: Descrição
+        user_id: Usuário
+        user: Usuário
+        url: url
+        category_id: Categoria
+        category: Categoria
+        updated_at: Atualizado em
+        created_at: Criado em
+      category:
+        name: Nome
+        description: Descrição
+        status: Status
+        updated_at: Atualizado em
+        created_at: Criado em
+    models:
+      movie: Vídeo
+      category: Categoria
+      
