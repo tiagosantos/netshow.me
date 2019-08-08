@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :require_permission, only: [:edit, :update, :destroy]
 
   # GET /movies
   # GET /movies.json
@@ -75,4 +76,11 @@ class MoviesController < ApplicationController
     def movie_params
       params.require(:movie).permit(:name, :url, :description, :user_id, :category_id)
     end
+
+    def require_permission
+      if current_user != Movie.find(params[:id]).user
+        redirect_to movies_url
+      end
+    end
+
 end
