@@ -134,3 +134,14 @@ section.jumbotron.text-center {
 a {
     text-decoration: none !important;
 }
+.alert {
+    position: absolute;
+    float: right;
+    right: 0;
+    z-index: 1000;
+    margin-right: 6.5%;
+    opacity: .8;
+    margin-top: 120px;
+    color: #000 !important;
+    width: 20%;
+}

@@ -13,7 +13,16 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
+    @view = View.new
+    if user_signed_in?
+      @view.user_id = current_user.id
+    else
+      @view.user_id = 0
+    end
+    @view.movie_id = @movie.id
+    @view.save
   end
+
 
   # GET /movies/new
   def new

@@ -1,5 +1,5 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+
 <h1 class="display-4 font-weight-normal"><%= @category.name %> <small>- <%= @category.description %></small></h1>
 
       <div class="row">
@@ -12,13 +12,11 @@
               <p class="card-text"><%= movie.description %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-
-                  <a href="/movies/<%= movie.id %>" class="btn btn-sm btn-outline-primary">View</a>
+                  <a href="/movies/<%= movie.id %>" class="btn btn-sm btn-outline-primary"><i class="fas fa-eye"></i> <%= View.where(movie_id: movie.id).count %></a>
                   <% if user_signed_in? && current_user.id == movie.user_id %>
                     <%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-sm btn-outline-primary" %>
                   <% end %>
                 </div>
-
                 <small class="text-muted">by <a href="/users/<%= movie.user.id %>"><%= movie.user.username %></a></small>
               </div>
             </div>
