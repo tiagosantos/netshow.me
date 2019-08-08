@@ -20,8 +20,8 @@
         <td><%= movie.name %></td>
         <td><%= movie.url %></td>
         <td><%= movie.description %></td>
-        <td><%= movie.user %></td>
-        <td><%= movie.category %></td>
+        <td><%= movie.user.username %></td>
+        <td><%= movie.category.name %></td>
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>

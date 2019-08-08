@@ -1,10 +1,12 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
   # GET /movies
   # GET /movies.json
   def index
     @movies = Movie.all
+    @categories = Category.all
   end
 
   # GET /movies/1
@@ -24,7 +26,9 @@ class MoviesController < ApplicationController
   # POST /movies
   # POST /movies.json
   def create
+    @categories = Category.all
     @movie = Movie.new(movie_params)
+    @movie.user_id = current_user.id
 
     respond_to do |format|
       if @movie.save

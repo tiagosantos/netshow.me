@@ -17,12 +17,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @movie.user %>
+  <%= @movie.user.username %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @movie.category %>
+  <%= @movie.category.name %>
 </p>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
