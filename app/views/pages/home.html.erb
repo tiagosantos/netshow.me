@@ -1,0 +1,67 @@
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Netshow.me</h1>
+        <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a porta magna. Morbi a luctus massa, eu finibus enim. Aenean augue erat, sodales vel ultricies porta, viverra nec arcu.</p>
+        <p>
+            <%= link_to new_movie_path, class: "btn btn-primary my-2" do %>
+            New Movie <i class="fas fa-plus"></i>
+            <% end %>
+        </p>
+    </div>
+</section>
+<div class="container">
+    <p id="notice">
+        <%= notice %>
+    </p>
+    <h2 class="display-4 font-weight-normal">Categories</h2>
+    <div class="row">
+        <% Category.all.order(:name).each do |category| %>
+        <div class="col-md-4">
+            <a href="/categories/<%= category.id %>">
+                <div class="card mb-4 shadow-sm category">
+                    <div class="card-body">
+                        <h5 class="card-text">
+                            <%= category.name %>
+                        </h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <% end %>
+    </div>
+    <hr>
+</div>
+<div class="container">
+    <p id="notice">
+        <%= notice %>
+    </p>
+    <h2 class="display-4 font-weight-normal">Movies</h2>
+    <div class="row">
+        <% Movie.all.each do |movie| %>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">
+                        <%= movie.name %></text>
+                </svg>
+                <div class="card-body">
+                    <p class="card-text">
+                        <%= movie.description %>
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="/movies/<%= movie.id %>" class="btn btn-sm btn-outline-primary">View</a>
+                            <% if user_signed_in? && current_user.id == movie.user_id %>
+                            <%= link_to 'Edit', edit_movie_path(movie), class: "btn btn-sm btn-outline-primary" %>
+                            <% end %>
+                        </div>
+                        <small class="text-muted">by <a href="/users/<%= movie.user.id %>">
+                                <%= movie.user.username %></a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
