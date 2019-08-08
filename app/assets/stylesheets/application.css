@@ -121,8 +121,16 @@ h3 {
     background-color: #06baf6;
     text-align: center;
 }
+.card.category:hover {
+    color: #06baf6 !important;
+    background-color: #fff;
+    border-color: #06baf6;
+}
 
 section.jumbotron.text-center {
     margin-top: -12px;
     background: #f5f5f5;
+}
+a {
+    text-decoration: none !important;
 }
